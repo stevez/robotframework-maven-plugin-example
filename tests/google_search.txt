@@ -1,0 +1,17 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Variables ***
+${BROWSER}        Firefox
+
+*** Test Cases ***
+Test Search Selenium in Google
+    Set Selenium Speed    .5 seconds
+    Open Browser    http://www.google.com    ${BROWSER}
+    Input Text    name=q    Selenium
+    Click Button    btnG
+    Sleep   2s
+    Page Should Contain Link    Selenium - Web Browser Automation
+    [Teardown]    Close Browser
+
+*** Keywords ***
